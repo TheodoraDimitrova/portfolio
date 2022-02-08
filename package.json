@@ -4,7 +4,7 @@
   "description": "Responsive portfolio website",
   "main": "main.js",
   "scripts": {
-    "sass":"node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
   },
   "keywords": [
     "responsive",
@@ -14,6 +14,7 @@
   "license": "ISC",
   "homepage": "https://github.com/TheodoraDimitrova/PortfolioTBD#readme",
   "dependencies": {
+    "jquery": "^3.6.0",
     "node-sass": "^7.0.1"
   }
 }
