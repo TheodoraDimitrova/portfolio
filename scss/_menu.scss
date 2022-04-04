@@ -57,12 +57,14 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($primery-color, 5);
+    background: darken($primery-color, 9);
     list-style: none;
     transform: translate3d(0, -100%, 0);
+    
     @include ease-out;
     &.show {
       transform: translate3d(0, 0, 0);
+     
     }
     .nav-item {
       color: red;
@@ -96,9 +98,11 @@
   &-branding {
     background: $primery-color;
     transform: translate3d(0, 100%, 0);
+        
     @include ease-out;
     &.show {
       transform: translate3d(0, 0, 0);
+   
     }
     .portrait {
       width: 400px;
@@ -108,7 +112,7 @@
       border: solid 3px $secondary-color;
       background-size: cover;
       background-position: center;
-      opacity: 1;
+      
     }
   }
   @for $x from 1 to 4 {
