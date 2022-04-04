@@ -45,11 +45,10 @@
 
   &-branding,
   &-nav {
-    width: 50%;
-    height: 100%;
     display: flex;
-    flex-flow: column;
+    flex-flow: column wrap;
     align-items: center;
+    justify-content: center;
     float: left;
     width: 50%;
     height: 100vh;
@@ -58,9 +57,63 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($color: rgba(0, 0, 0, 0.712), $amount: 1);
+    background: darken($primery-color, 5);
     list-style: none;
+    transform: translate3d(0, -100%, 0);
+    @include ease-out;
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+    .nav-item {
+      color: red;
+      transform: translate3d(600px, 0, 0);
+      @include ease-out;
+
+      &.show {
+        transform: translate3d(0, 0, 0);
+      }
+      &.current > a {
+        color: $secondary-color;
+      }
+    }
+    .nav-link {
+      display: inline-block;
+      position: relative;
+      font-size: 30px;
+      padding: 1rem 0;
+      font-weight: 300;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      @include ease-out;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  &-branding {
+    background: $primery-color;
     transform: translate3d(0, 100%, 0);
     @include ease-out;
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+    .portrait {
+      width: 400px;
+      height: 400px;
+      background: $profile-image;
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+      background-size: cover;
+      background-position: center;
+      opacity: 1;
+    }
+  }
+  @for $x from 1 to 4 {
+    .nav-item:nth-child(#{$x}) {
+      transition-delay: $x * 0.1s;
+    }
   }
 }

@@ -12,6 +12,7 @@
             menuBtn.addClass('close');
             menu.addClass('show');
             menuBranding.addClass('show');
+            menuNav.addClass('show');
             navItem.addClass('show');
             showMenu=true;
 
@@ -20,6 +21,7 @@
             menu.removeClass('show');
             menuBranding.removeClass('show');
             navItem.removeClass('show');
+            menuNav.removeClass('show');
             showMenu=false;
         }
   
