@@ -1,49 +1,78 @@
 //Widescreens
 @include mediaXl {
+  .projects {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
 }
-//destops, Laptops
+//destops, Laptops (min-width: 769px) and (mix-width: 1170px)
 @include mediaLg {
+
+  #about {
+ 
+    .grid-container {
+      grid-template-areas:'portrait'
+      "bio" !important;
+    }
+    .skills {
+      grid-template-columns: 1fr !important;
+    }
+  }
+ 
 }
-//Tablets and small laptops
+//Tablets and small laptops (max-width: 768px)
 @include mediaMd {
-    main{
-        align-items: center;
-        text-align: center !important;
-        .lg-heading{
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
+  main {
+    align-items: center;
+    text-align: center !important;
+    .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem;
     }
+  }
 
-    ul.menu-nav,
-    div.menu-branding{
-        float: none;
-        width: 100%;
-        min-height: 0;
-       
-        &.show{
-            transform: translate3d(0,0,0);
-        }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0;
 
+    &.show {
+      transform: translate3d(0, 0, 0);
     }
-    .menu-branding{
-        height: 25vh;
-        transform: translate3d(100%, 0 ,0);
-        .portrait{
-            width: 200px !important;
-            height: 200px !important;
-        }
+  }
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0);
+    .portrait {
+      width: 200px !important;
+      height: 200px !important;
     }
-    ul.menu-nav{
-        height: 75vh;
-        transform: translate3d(-100%, 0 ,0);
-        font-size: 24px;
+  }
+  ul.menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px;
+  }
+  .projects {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  #about {
+    .grid-container {
+      grid-template-areas:'portrait'
+      "bio" !important;
     }
+    .skills {
+      grid-template-columns: 1fr !important;
+    }
+  }
 
 }
-//smartphones
+//smartphones max-width: 500px
 @include mediaSm {
-    .lg-heading{
-        font-size: 4rem !important;
-    }
+  .lg-heading {
+    font-size: 4rem !important;
+  }
+  .projects {
+    grid-template-columns: 1fr !important;
+  }
 }

@@ -1,5 +1,5 @@
-$primery-color: #444;
-$secondary-color: #e79e1f;
+$primery-color: #353b49;
+$secondary-color: #f66829;
 $text-success:#4ae029;
 $white: #fff;
 $home-image: url("/dist/images/home.jpg");
@@ -44,7 +44,7 @@ $background-opacity: 0.5;
 }
 @mixin  mediaLg {
    
-  @media screen and (min-width: 769px) and (min-width: 1170px){
+  @media screen and (min-width: 769px) and (max-width: 1170px){
     @content;
   }
 }

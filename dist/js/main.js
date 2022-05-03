@@ -8,6 +8,7 @@
     let showMenu=false;
 
     menuBtn.on('click',function(){
+        console.log("click")
         if(!showMenu){
             menuBtn.addClass('close');
             menu.addClass('show');
@@ -26,6 +27,4 @@
         }
   
     })
-
-
 
