@@ -89,22 +89,30 @@
     transition-delay: 0.3s; }
 
 @media screen and (min-width: 1171px) {
+  .container {
+    width: 80vw !important; }
   .projects {
     grid-template-columns: repeat(4, 1fr) !important; } }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
+  .container {
+    width: 80vw !important; }
   #about .grid-container {
-    grid-template-areas: 'portrait' "bio" !important; }
+    grid-template-areas: "portrait" "bio" !important; }
   #about .skills {
     grid-template-columns: 1fr !important; } }
 
 @media screen and (max-width: 768px) {
   main {
     align-items: center;
-    text-align: center !important; }
+    text-align: center !important;
+    margin-right: 0 !important; }
     main .lg-heading {
       line-height: 1;
       margin-bottom: 1rem; }
+  .portrait {
+    width: 200px !important;
+    height: 200px !important; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -114,11 +122,8 @@
     div.menu-branding.show {
       transform: translate3d(0, 0, 0); }
   .menu-branding {
-    height: 25vh;
+    height: 30vh;
     transform: translate3d(100%, 0, 0); }
-    .menu-branding .portrait {
-      width: 200px !important;
-      height: 200px !important; }
   ul.menu-nav {
     height: 75vh;
     transform: translate3d(-100%, 0, 0);
@@ -126,15 +131,38 @@
   .projects {
     grid-template-columns: repeat(2, 1fr) !important; }
   #about .grid-container {
-    grid-template-areas: 'portrait' "bio" !important; }
+    padding: 0 !important;
+    grid-template-areas: "portrait" "bio" !important; }
+    #about .grid-container .img {
+      width: 200px !important;
+      height: 200px !important; }
   #about .skills {
-    grid-template-columns: 1fr !important; } }
+    grid-template-columns: 1fr !important;
+    text-align: left; }
+  #contact .contacts {
+    flex-direction: column-reverse !important; }
+    #contact .contacts .icons {
+      width: 100% !important;
+      align-items: center;
+      margin: 20px 0; }
+      #contact .contacts .icons div {
+        width: 100%; }
+    #contact .contacts .btn, #contact .contacts main .btn-light, main #contact .contacts .btn-light, #contact .contacts main .btn-dark, main #contact .contacts .btn-dark {
+      width: 100%; }
+  form {
+    width: 100% !important;
+    text-align: left;
+    padding: 0 11%; } }
 
 @media screen and (max-width: 500px) {
   .lg-heading {
     font-size: 4rem !important; }
   .projects {
-    grid-template-columns: 1fr !important; } }
+    grid-template-columns: 1fr !important; }
+  #contact .contacts form {
+    padding: 0 !important; }
+  #contact .contacts .icons {
+    padding: 0 !important; } }
 
 * {
   box-sizing: border-box; }
@@ -178,6 +206,9 @@ a {
   color: #fff;
   text-decoration: none; }
 
+img {
+  width: 100%; }
+
 header {
   position: fixed;
   z-index: 2;
@@ -186,71 +217,77 @@ header {
 .text-secondary {
   color: #f66829; }
 
-main {
-  min-height: calc(100vh-60px);
-  text-align: right; }
-  main .icons {
-    margin-top: 1rem; }
-    main .icons a {
-      padding: 0.4rem; }
-      main .icons a:hover {
-        color: #f66829;
-        transition: all 0.5s ease-out; }
-  main .btn, main .btn-light, main .btn-dark {
-    display: block;
-    padding: 0.5rem 1rem;
-    border: 0;
-    margin-bottom: 0.3rem; }
-    main .btn:hover, main .btn-light:hover, main .btn-dark:hover {
-      background: #f66829;
-      color: #fff; }
-  main .btn-light {
-    background: gray;
-    color: black; }
-  main .btn-dark {
-    background: black;
+main .icons {
+  margin-top: 1rem; }
+  main .icons a {
+    padding: 0.4rem; }
+    main .icons a:hover {
+      color: #f66829;
+      transition: all 0.5s ease-out; }
+
+main .btn, main .btn-light, main .btn-dark {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  main .btn:hover, main .btn-light:hover, main .btn-dark:hover {
+    background: #f66829;
     color: #fff; }
-  main#home {
-    overflow: hidden;
-    margin-right: 35px; }
-    main#home h1 {
-      margin-top: 20vh; }
-    main#home h2 {
-      color: #4ae029; }
-  main#about {
-    padding: 0;
-    text-align: left !important;
-    overflow: hidden; }
-    main#about .grid-container {
-      display: grid;
-      align-items: center;
-      padding: 30px;
-      gap: 30px;
-      grid-template-areas: "portrait bio bio"; }
-      main#about .grid-container p {
-        text-align: justify; }
-      main#about .grid-container .portrait {
-        grid-area: portrait;
-        justify-self: center; }
-      main#about .grid-container .bio {
-        grid-area: bio; }
-      main#about .grid-container .skills {
-        grid-area: skills; }
-      main#about .grid-container .portrait .img {
-        width: 350px;
-        height: 350px;
-        background: url("/dist/images/profile-pic.jpg");
-        border-radius: 50%;
-        border: solid 3px #f66829;
-        background-size: cover;
-        background-position: center; }
-    main#about .skills {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-top: 30px;
-      column-gap: 30px;
-      padding: 30px;
-      margin-bottom: 80px; }
+
+main .btn-light {
+  background: gray;
+  color: black; }
+
+main .btn-dark {
+  background: black;
+  color: #fff; }
+
+main#home {
+  overflow: hidden;
+  margin-right: 35px;
+  text-align: right; }
+  main#home h1 {
+    margin-top: 20vh; }
+  main#home h2 {
+    color: #4ae029; }
+
+main#about {
+  padding: 0;
+  overflow: hidden; }
+  main#about .grid-container {
+    display: grid;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+    grid-template-areas: "portrait bio bio"; }
+    main#about .grid-container p {
+      text-align: justify; }
+    main#about .grid-container .portrait {
+      grid-area: portrait;
+      justify-self: center;
+      width: 350px;
+      height: 350px; }
+    main#about .grid-container .bio {
+      grid-area: bio; }
+    main#about .grid-container .skills {
+      grid-area: skills; }
+    main#about .grid-container .portrait .img {
+      background: url("/dist/images/profile-pic.jpg");
+      border-radius: 50%;
+      border: solid 3px #f66829;
+      background-size: cover;
+      background-position: center;
+      width: 350px;
+      height: 350px; }
+  main#about .skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 30px;
+    column-gap: 30px;
+    padding: 30px;
+    margin-bottom: 80px; }
+    main#about .skills .skills-header {
+      display: flex; }
       main#about .skills .skills-header .big-tick-box {
         border: solid 2px #fff;
         border-radius: 10px;
@@ -270,34 +307,134 @@ main {
         font-size: 1.5em;
         margin-left: 20px;
         display: inline; }
-  main#work {
-    padding: 0;
-    text-align: left !important;
-    overflow: hidden; }
-    main#work .projects {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px; }
-      main#work .projects img {
-        width: 100%;
-        border: 3px solid white; }
-        main#work .projects img:hover {
-          opacity: 0.5;
-          border-color: #f66829;
-          transition: all 0.5s ease-out; }
-  main #footer {
-    text-align: center;
-    height: 60px;
-    font-size: 22px;
-    background: black;
+
+main#work {
+  padding: 0;
+  overflow: hidden; }
+  main#work .projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; }
+    main#work .projects img {
+      width: 100%;
+      border: 3px solid white; }
+      main#work .projects img:hover {
+        opacity: 0.5;
+        border-color: #f66829;
+        transition: all 0.5s ease-out; }
+
+main #footer {
+  text-align: center;
+  height: 60px;
+  font-size: 22px;
+  background: black;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  opacity: 0.8;
+  padding: 1rem; }
+
+main#contact {
+  padding: 0;
+  overflow: hidden; }
+  main#contact .contacts {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap; }
+    main#contact .contacts .icons {
+      width: 50%;
+      margin-top: 0;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 11%; }
+      main#contact .contacts .icons div {
+        display: flex;
+        justify-content: space-between; }
+        main#contact .contacts .icons div:first-child {
+          justify-content: end; }
+    main#contact .contacts .btn, main#contact .contacts .btn-light, main#contact .contacts .btn-dark {
+      border-radius: 5px;
+      background-color: #b6c71a;
+      cursor: pointer;
+      float: right;
+      margin-top: 20px;
+      padding: 0.5rem 2rem; }
+  main#contact .modal {
+    visibility: hidden;
     position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
     width: 100%;
-    bottom: 0;
-    opacity: 0.8;
-    padding: 1rem; }
-  main .container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 80vw; }
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  main#contact .modal-content {
+    background-color: #fefefe;
+    margin: 25% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    color: black;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    width: 360px; }
+    main#contact .modal-content .modal_img {
+      width: 30%;
+      margin: 40px auto; }
+  main#contact .close {
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px; }
+  main#contact .close:hover,
+  main#contact .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer; }
+
+main form {
+  width: 50%; }
+  main form label {
+    display: block;
+    padding: 10px 0; }
+    main form label.error {
+      padding: 0; }
+  main form input,
+  main form textarea {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 10px 5px;
+    background: white no-repeat;
+    background-image: linear-gradient(to bottom, #f66829, #f66829), linear-gradient(to bottom, silver, silver);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    border-radius: 5px; }
+    main form input.error,
+    main form textarea.error {
+      border: 2px solid #c93c3c; }
+  main form input:focus,
+  main form textarea:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: none; }
+
+main .container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 5rem;
+  margin-bottom: 5rem; }
+
+main .green {
+  color: #b6c71a; }
+
+main .error {
+  color: red;
+  display: block; }

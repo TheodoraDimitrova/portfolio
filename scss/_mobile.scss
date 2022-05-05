@@ -1,35 +1,46 @@
 //Widescreens
 @include mediaXl {
+  .container {
+    width: 80vw !important;
+  }
   .projects {
     grid-template-columns: repeat(4, 1fr) !important;
   }
 }
 //destops, Laptops (min-width: 769px) and (mix-width: 1170px)
 @include mediaLg {
+  .container {
+    width: 80vw !important;
+  }
 
   #about {
- 
     .grid-container {
-      grid-template-areas:'portrait'
-      "bio" !important;
+      grid-template-areas:
+        "portrait"
+        "bio" !important;
     }
     .skills {
       grid-template-columns: 1fr !important;
     }
   }
- 
 }
 //Tablets and small laptops (max-width: 768px)
 @include mediaMd {
+  
   main {
     align-items: center;
     text-align: center !important;
+    margin-right: 0 !important;
+
     .lg-heading {
       line-height: 1;
       margin-bottom: 1rem;
     }
   }
-
+  .portrait {
+    width: 200px !important;
+    height: 200px !important;
+  }
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -41,12 +52,9 @@
     }
   }
   .menu-branding {
-    height: 25vh;
+    height: 30vh;
     transform: translate3d(100%, 0, 0);
-    .portrait {
-      width: 200px !important;
-      height: 200px !important;
-    }
+   
   }
   ul.menu-nav {
     height: 75vh;
@@ -58,21 +66,66 @@
   }
   #about {
     .grid-container {
-      grid-template-areas:'portrait'
-      "bio" !important;
+      padding: 0 !important;
+      grid-template-areas:
+        "portrait"
+        "bio" !important;
+    
+          .img {
+            width: 200px !important;
+            height: 200px !important;
+          }
+        
+
+        
     }
     .skills {
       grid-template-columns: 1fr !important;
+      text-align: left;
     }
   }
+  &#contact {
+    .contacts {
+      flex-direction: column-reverse !important;
 
+      .icons {
+        width: 100% !important;
+        align-items: center;
+        margin: 20px 0;
+
+        div {
+          width: 100%;
+        }
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  form {
+    width: 100% !important;
+    text-align: left;
+    padding: 0 11%;
+  }
 }
 //smartphones max-width: 500px
 @include mediaSm {
   .lg-heading {
     font-size: 4rem !important;
   }
+
   .projects {
     grid-template-columns: 1fr !important;
+  }
+
+  #contact {
+    .contacts {
+      form{
+        padding: 0!important;
+      }
+      .icons {
+        padding: 0 !important;
+      }
+    }
   }
 }
