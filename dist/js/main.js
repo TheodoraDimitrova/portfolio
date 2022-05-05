@@ -1,4 +1,3 @@
-//Select DOM Items
 const menuBtn = $(".menu-btn");
 const menu = $(".menu");
 const menuBranding = $(".menu-branding");

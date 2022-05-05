@@ -14,7 +14,6 @@
   "license": "ISC",
   "homepage": "https://github.com/TheodoraDimitrova/PortfolioTBD#readme",
   "dependencies": {
-    "jquery": "^3.6.0",
     "node-sass": "^7.0.1"
   }
 }
