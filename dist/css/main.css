@@ -76,7 +76,7 @@
     .menu-branding .portrait {
       width: 400px;
       height: 400px;
-      background: url("/dist/images/profile-pic.jpg");
+      background: url("../images/profile_pic.jpg");
       border-radius: 50%;
       border: solid 3px #f66829;
       background-size: cover;
@@ -175,7 +175,7 @@ body {
   margin: 0;
   height: 100%; }
   body#bg-img {
-    background: url("/dist/images/home.jpg");
+    background: url("../images/home.jpg");
     background-attachment: fixed;
     background-size: cover; }
     body#bg-img:after {
@@ -272,7 +272,7 @@ main#about {
     main#about .grid-container .skills {
       grid-area: skills; }
     main#about .grid-container .portrait .img {
-      background: url("/dist/images/profile-pic.jpg");
+      background: url("../images/profile_pic.jpg");
       border-radius: 50%;
       border: solid 3px #f66829;
       background-size: cover;
