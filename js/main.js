@@ -55,7 +55,7 @@ let modal = $("#myModal");
 
 window.onclick = function (event) {
   if (event.target.id == "myModal") {
-    modal.css({ visibility: "hidden" });
+    modal.css({ display: "none" });
   }
 };
 $("#submit").on("click", function (e) {
@@ -69,7 +69,7 @@ $("#submit").on("click", function (e) {
       data: $("#contactForm").serialize(),
       error: (error) => console.log("error", error),
       success: function (result) {
-        modal.css({ visibility: "visible" });
+        modal.css({ display: "block" });
         $("#contactForm")[0].reset();
       },
     });
@@ -77,5 +77,5 @@ $("#submit").on("click", function (e) {
 });
 
 $(".close").on("click", function (e) {
-  modal.css({ visibility: "hidden" });
+  modal.css({ display: "none" });
 });
