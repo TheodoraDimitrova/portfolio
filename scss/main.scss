@@ -172,25 +172,25 @@ main {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
 
-
-      .item{
+      .item {
         display: grid;
-    grid-template-rows: 1fr;
-    gap: 5px;
-    img {
-      width: 100%;
-      border: 3px solid white;
-      height: 100%;
+        grid-template-rows: 250px auto auto;
 
-      &:hover {
-        opacity: 0.5;
-        border-color: $secondary-color;
-        @include ease-out;
-      }
-    }
-      }
 
-   
+        gap: 5px;
+
+        img {
+          width: 100%;
+          border: 3px solid white;
+          height: 100%;
+
+          &:hover {
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include ease-out;
+          }
+        }
+      }
     }
   }
   #footer {

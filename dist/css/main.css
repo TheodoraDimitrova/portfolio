@@ -317,7 +317,7 @@ main#work {
     gap: 20px; }
     main#work .projects .item {
       display: grid;
-      grid-template-rows: 1fr;
+      grid-template-rows: 250px auto auto;
       gap: 5px; }
       main#work .projects .item img {
         width: 100%;
