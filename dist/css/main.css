@@ -25,7 +25,7 @@
   background: #252c34;
   top: 0;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.97;
   visibility: hidden; }
   .menu.show {
     visibility: visible; }
@@ -315,13 +315,18 @@ main#work {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px; }
-    main#work .projects img {
-      width: 100%;
-      border: 3px solid white; }
-      main#work .projects img:hover {
-        opacity: 0.5;
-        border-color: #f66829;
-        transition: all 0.5s ease-out; }
+    main#work .projects .item {
+      display: grid;
+      grid-template-rows: 1fr;
+      gap: 5px; }
+      main#work .projects .item img {
+        width: 100%;
+        border: 3px solid white;
+        height: 100%; }
+        main#work .projects .item img:hover {
+          opacity: 0.5;
+          border-color: #f66829;
+          transition: all 0.5s ease-out; }
 
 main #footer {
   text-align: center;
