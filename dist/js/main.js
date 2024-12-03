@@ -81,7 +81,7 @@ $(".close").on("click", function (e) {
 });
 $(document).ready(function () {
   // Вземете текущата година
-  var currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
   // Намерете елемента на футъра с id "footer" и задайте текста му на текущата година
   $("#footer").text(
