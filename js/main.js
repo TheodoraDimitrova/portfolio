@@ -80,10 +80,8 @@ $(".close").on("click", function (e) {
   modal.css({ visibility: "hidden" });
 });
 $(document).ready(function () {
-  // Вземете текущата година
   const currentYear = new Date().getFullYear();
 
-  // Намерете елемента на футъра с id "footer" и задайте текста му на текущата година
   $("#footer").text(
     "Copyright © " + currentYear + " Teodora Dimitrova. All rights reserved."
   );
