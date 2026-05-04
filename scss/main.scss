@@ -58,7 +58,10 @@ main {
     }
   }
   .btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
     padding: 0.5rem 1rem;
     border: 0;
     margin-bottom: 0.3rem;
@@ -166,6 +169,15 @@ main {
   &#work {
     padding: 0;
     overflow: hidden;
+
+    .sm-heading {
+      a {
+        &:hover {
+          color: $secondary-color;
+          @include ease-out();
+        }
+      }
+    }
 
     .projects {
       display: grid;

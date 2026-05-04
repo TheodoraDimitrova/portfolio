@@ -3,6 +3,7 @@ const menu = $(".menu");
 const menuBranding = $(".menu-branding");
 const menuNav = $(".menu-nav");
 const navItem = $(".nav-item");
+const projectsContainer = $(".projects");
 
 let showMenu = false;
 
@@ -79,10 +80,61 @@ $("#submit").on("click", function (e) {
 $(".close").on("click", function (e) {
   modal.css({ visibility: "hidden" });
 });
+
+if (projectsContainer.length) {
+  const projects = [
+    {
+      title: "Market Cloud – eCommerce Platform",
+      image: "./images/marketCloud.png",
+      projectUrl: "https://market-cloud.vercel.app/",
+      githubUrl: "https://github.com/TheodoraDimitrova/marketCloud",
+    },
+    {
+      title: "InVoice App",
+      image: "./images/invoicer.png",
+      projectUrl:
+        "https://in-voice-app-theodoradimitrovas-projects.vercel.app/",
+      githubUrl: "https://github.com/TheodoraDimitrova/inVoice_App",
+    },
+    {
+      title: "RBS Real Estate",
+      image: "./images/RBS.png",
+      projectUrl: "https://rbs-real-estate.vercel.app/",
+      githubUrl: "https://github.com/TheodoraDimitrova/RBS_Real_Estate",
+    },
+    {
+      title: "Dev Experience",
+      image: "./images/devExp.jpg",
+      projectUrl: "https://dev-experience-production.up.railway.app/",
+      githubUrl: "https://github.com/TheodoraDimitrova/devExpReact",
+    },
+  ];
+
+  const projectsHtml = projects
+    .map(
+      (project) => `
+        <div class="item">
+          <a href="${project.projectUrl}" target="_blank">
+            <img src="${project.image}" alt="${project.title}">
+          </a>
+          <a href="${project.projectUrl}" target="_blank" class="btn btn-light">
+            <i class="fas fa-eye fa-2x"></i> Project
+          </a>
+          <a href="${project.githubUrl}" target="_blank" class="btn btn-dark">
+            <i class="fab fa-github fa-2x"></i> Github
+          </a>
+        </div>
+      `,
+    )
+    .join("");
+
+  projectsContainer.html(projectsHtml);
+}
+
 $(document).ready(function () {
   const currentYear = new Date().getFullYear();
 
   $("#footer").text(
-    "Copyright © " + currentYear + " Teodora Dimitrova. All rights reserved."
+    "Copyright © " + currentYear + " Teodora Dimitrova. All rights reserved.",
   );
 });
