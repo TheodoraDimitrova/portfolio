@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "config" as *;
+
 .menu-btn {
   position: absolute;
   top: 35px;
@@ -5,6 +8,10 @@
   @include ease-out();
   z-index: 3;
   cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
 
   .btn-line {
     width: 28px;
@@ -57,7 +64,7 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($primery-color, 9);
+    background: color.adjust($primery-color, $lightness: -9%);
     list-style: none;
     transform: translate3d(0, -100%, 0);
     

@@ -1,0 +1,197 @@
+import { Footer } from '../components/Footer'
+
+export function AboutPage() {
+  return (
+    <main id="about">
+      <div className="container">
+        <h1 className="lg-heading">
+          About <span className="text-secondary">Me</span>
+        </h1>
+        <h2 className="sm-heading">Let me tell you a few things about me...</h2>
+
+        <div className="grid-container">
+          <div className="portrait">
+            <div className="img" />
+          </div>
+          <div className="bio">
+            <p>
+              I have nearly 5 years of professional experience in the IT industry
+              as a Front-end developer, with significant experience within
+              companies. Throughout my career, I have successfully built and
+              maintained web applications for various clients, showcasing my
+              ability to deliver high-quality solutions. My journey in the
+              software industry began in 2016 with my education at the Software
+              University (SoftUni), Sofia, Bulgaria, where I obtained my diploma
+              in JavaScript Web Development. I primarily specialize in user
+              interface development for applications, with a strong focus on the
+              JavaScript language, both in front-end development and its
+              server-side applications. Over the years, I have cultivated my
+              GitHub repository, which not only demonstrates my skills but also
+              reflects my continuous aspiration to explore various technologies
+              and their innovations in web development, server-side
+              development, and mobile applications using JavaScript.
+            </p>
+          </div>
+        </div>
+
+        <div className="skills">
+          <div className="skills-block block-1">
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Front-End Application Development</h3>
+            </div>
+            <p>
+              Nearly 5 years of experience as a Front-End Developer, with proven
+              expertise in working on large-scale front-end applications,
+              primarily using the most popular front-end frameworks.
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>
+                Proficient in JavaScript (ES6+), TypeScript, DOM manipulations,
+                jQuery
+              </h3>
+            </div>
+            <p>
+              Strong focus on writing clean, maintainable code while adhering to
+              industry best practices. Continuously staying up-to-date with the
+              latest trends and technologies to ensure optimal performance and
+              scalability in my projects.
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Proven experience with CSS, including SCSS</h3>
+            </div>
+            <p>
+              Expertise in utilizing UI libraries such as Material UI, ShadCN,
+              and CSS frameworks like Bootstrap, Tailwind CSS, and Materialize
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Experience in React (Next.js), Vue (Nuxt.js), Svelte, Angular</h3>
+            </div>
+            <p>
+              Skilled in building user interfaces and writing production-ready
+              code, with a focus on performance, scalability, and best practices
+              for large-scale applications.
+            </p>
+          </div>
+
+          <div className="skills-block block-2">
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>State Management (Redux Toolkit, Redux, Context API and Vuex)</h3>
+            </div>
+            <p>
+              Expert in applying best practices to handle complex state in modern
+              applications.
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Working with Rest APIs</h3>
+            </div>
+            <p>
+              Experience of design and integration with backend technologies,
+              such as REST APIs, Websockets, utilising suitable data structures
+              and stores. Connection to the APIs and make requests via Fetch and
+              Axios
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Server-Side Web Development Node, Express</h3>
+            </div>
+            <p>
+              Skilled in deploying and managing production projects, ensuring
+              smooth and efficient server-side operations.
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>DB Administration</h3>
+            </div>
+            <p>
+              Experience working with both SQL and NoSQL databases, including
+              MySQL, MongoDB, and Redis.)
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Package Managers NPM and Yarn</h3>
+            </div>
+          </div>
+
+          <div className="skills-block block-3">
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Experience with headless CMS and traditional CMS tools</h3>
+            </div>
+            <p>
+              Familiar with tools such as Sanity, October, WordPress, and
+              Shopify, enabling seamless content management and integration with
+              front-end applications.
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Collaborate with the team and manager</h3>
+            </div>
+            <p>
+              Strong ability to collaborate and communicate effectively with team
+              members, UI designers, and back-end developers throughout the
+              entire product development lifecycle
+            </p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Work experience working in an Agile environment (JIRA)</h3>
+            </div>
+            <p>Skills from working in self-organizing and cross-functional Agile team</p>
+
+            <div className="skills-header">
+              <span className="big-tick-box">
+                <i className="fa fa-check" />
+              </span>
+              <h3>Version Control with GitHub and GitLab</h3>
+            </div>
+            <p>
+              Proficient in using GIT for version control, collaborating
+              effectively in teams, and managing repositories on GitHub and
+              GitLab.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </main>
+  )
+}

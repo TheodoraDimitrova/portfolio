@@ -1,6 +1,6 @@
-@import "config";
-@import "menu";
-@import "mobile";
+@use "config" as *;
+@use "menu" as *;
+@use "mobile" as *;
 
 * {
   box-sizing: border-box;
@@ -304,6 +304,12 @@ main {
       &.error {
         padding: 0;
       }
+    }
+
+    .form-error {
+      color: #ffb4b4;
+      margin: 0.25rem 0 0.75rem;
+      font-size: 0.95rem;
     }
 
     input,
