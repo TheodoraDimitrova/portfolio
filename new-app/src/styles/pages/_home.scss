@@ -1,0 +1,35 @@
+@use '../variables' as *;
+
+main#home {
+  overflow: hidden;
+  margin-right: 35px;
+  text-align: right;
+  position: relative;
+  background: url('/images/home.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    margin-top: 20vh;
+  }
+
+  h2 {
+    color: $color-home-subtitle;
+  }
+}

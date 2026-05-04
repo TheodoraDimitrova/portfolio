@@ -1,0 +1,97 @@
+@use "../variables" as *;
+
+main#about {
+  padding: 0;
+  overflow: hidden;
+}
+
+.grid-container {
+  display: grid;
+  align-items: center;
+  padding: 30px;
+  gap: 30px;
+  grid-template-areas: "portrait bio bio";
+
+  .portrait {
+    grid-area: portrait;
+    justify-self: center;
+    width: 350px;
+    height: 350px;
+
+    .img {
+      background: url("/images/profile_pic.jpg");
+      border-radius: 50%;
+      border: solid 3px $color-accent;
+      background-size: cover;
+      background-position: center;
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  .bio {
+    grid-area: bio;
+  }
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 30px;
+  column-gap: 30px;
+  padding: 30px;
+  margin-bottom: 80px;
+}
+
+.skills-header {
+  display: flex;
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-left: 20px;
+    display: inline;
+  }
+}
+
+.skills-block p {
+  color: #d9d9d9;
+}
+
+.big-tick-box {
+  border: solid 2px #fff;
+  border-radius: 10px;
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  position: relative;
+  top: 7px;
+
+  .fa {
+    font-size: 3.3rem;
+    position: relative;
+    top: -15px;
+    left: 3px;
+    color: $color-success;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "portrait"
+      "bio";
+
+    .portrait,
+    .portrait .img {
+      width: 240px;
+      height: 240px;
+    }
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+}

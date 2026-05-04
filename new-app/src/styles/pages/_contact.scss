@@ -1,0 +1,155 @@
+@use '../variables' as *;
+
+main#contact {
+  padding: 0;
+  overflow: hidden;
+}
+
+.contacts {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  width: 50%;
+  display: block;
+
+  label {
+    display: block;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 10px 5px;
+    background: #fff no-repeat;
+    background-image:
+      linear-gradient(to bottom, $color-accent, $color-accent),
+      linear-gradient(to bottom, silver, silver);
+    background-size:
+      0 2px,
+      100% 1px;
+    background-position:
+      50% 100%,
+      50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    border-radius: 5px;
+    color: #222;
+  }
+
+  input:focus,
+  textarea:focus {
+    background-size:
+      100% 2px,
+      100% 1px;
+    outline: none;
+  }
+}
+
+.contact-details {
+  width: 50%;
+}
+
+.contacts .icons {
+  width: 100%;
+  margin-top: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 11%;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div:first-child {
+    justify-content: end;
+    gap: 0.7rem;
+  }
+}
+
+.submit-btn {
+  border-radius: 5px;
+  background-color: $color-success;
+  cursor: pointer;
+  float: right;
+  margin-top: 20px;
+  padding: 0.5rem 2rem;
+}
+
+.green {
+  color: $color-success;
+}
+
+.modal-overlay {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 25% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  color: black;
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
+  width: 360px;
+
+  img {
+    width: 30%;
+    margin: 40px auto;
+  }
+
+  p {
+    font-size: 22px;
+  }
+}
+
+.close-modal {
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .contacts {
+    display: block;
+  }
+
+  .contact-form,
+  .contact-details {
+    width: 100%;
+  }
+
+  .contacts .icons {
+    margin-top: 40px;
+    text-align: left;
+    padding: 0;
+  }
+}

@@ -1,0 +1,120 @@
+@use 'variables' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+a {
+  color: $color-text;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.home-page,
+.work-page,
+.about-page,
+.contact-page {
+  min-height: calc(100vh - 64px);
+  background: $color-bg;
+  color: $color-text;
+}
+
+.container {
+  width: min(1100px, 96%);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.icons {
+  margin-top: 1rem;
+
+  a {
+    color: $color-text;
+    padding: 0.4rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-accent;
+      transition: all 0.5s ease-out;
+    }
+  }
+}
+
+.lg-heading {
+  font-size: 6rem;
+}
+
+.sm-heading {
+  margin: 0 0 2rem;
+}
+
+.text-secondary {
+  color: $color-accent;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.3rem;
+  color: $color-text;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: $color-accent;
+    color: $color-text;
+  }
+}
+
+.btn-light {
+  background: gray;
+}
+
+.btn-dark {
+  background: #000;
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 95%;
+  }
+
+  main {
+    align-items: center;
+    text-align: center;
+    margin-right: 0;
+
+    .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+  }
+}

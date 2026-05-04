@@ -1,0 +1,509 @@
+@use "config" as *;
+@use "menu";
+@use "mobile";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $primery-color;
+  color: $white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  height: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+  &.sm-heading {
+    margin-bottom: 2rem;
+  }
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+}
+img {
+  width: 100%;
+}
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  .icons {
+    margin-top: 1rem;
+    a {
+      padding: 0.4rem;
+      &:hover {
+        color: $secondary-color;
+        @include ease-out();
+      }
+    }
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+    &:hover {
+      background: $secondary-color;
+      color: #fff;
+    }
+  }
+  .btn-light {
+    @extend .btn;
+    background: gray;
+    color: black;
+  }
+  .btn-dark {
+    @extend .btn;
+    background: black;
+    color: $white;
+  }
+  &#home {
+    overflow: hidden;
+    margin-right: 35px;
+    text-align: right;
+    h1 {
+      margin-top: 20vh;
+    }
+    h2 {
+      color: $text-success;
+    }
+  }
+  &#about {
+    padding: 0;
+    overflow: hidden;
+
+    .grid-container {
+      display: grid;
+      align-items: center;
+      padding: 30px;
+      gap: 30px;
+      grid-template-areas: "portrait bio bio";
+
+      .portrait {
+        grid-area: portrait;
+        justify-self: center;
+        width: 350px;
+        height: 350px;
+      }
+      .bio {
+        grid-area: bio;
+      }
+      .skills {
+        grid-area: skills;
+      }
+      .portrait {
+        .img {
+          background: $profile-image;
+          border-radius: 50%;
+          border: solid 3px $secondary-color;
+          background-size: cover;
+          background-position: center;
+          width: 350px;
+          height: 350px;
+        }
+      }
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 30px;
+      column-gap: 30px;
+      row-gap: 22px;
+      padding: 30px;
+      margin-bottom: 80px;
+
+      .skills-block {
+        display: grid;
+        gap: 18px;
+        align-content: start;
+        min-width: 0;
+      }
+
+      .skills-header {
+        display: flex;
+        align-items: flex-start;
+        min-width: 0;
+
+        .big-tick-box {
+          border: solid 2px #fff;
+          border-radius: 10px;
+          height: 45px;
+          width: 45px;
+          display: inline-block;
+          position: relative;
+          top: 7px;
+          flex: 0 0 45px;
+
+          .fa {
+            font-size: 3.3rem;
+            position: relative;
+            top: -15px;
+            left: 3px;
+            color: #b6c71a;
+          }
+        }
+        h3 {
+          font-weight: 600;
+          font-size: 1.1rem;
+          line-height: 1.35;
+          margin-left: 20px;
+          display: block;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  &#work {
+    padding: 0;
+    overflow: hidden;
+
+    .sm-heading {
+      a {
+        &:hover {
+          color: $secondary-color;
+          @include ease-out();
+        }
+      }
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      .item {
+        display: grid;
+        grid-template-rows: 250px auto auto;
+
+        gap: 5px;
+
+        img {
+          width: 100%;
+          border: 3px solid white;
+          height: 100%;
+
+          &:hover {
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include ease-out;
+          }
+        }
+      }
+    }
+  }
+  #footer {
+    text-align: center;
+    height: 60px;
+    font-size: 22px;
+    background: black;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    opacity: 0.8;
+    padding: 1rem;
+  }
+  &#contact {
+    padding: 0;
+    overflow: hidden;
+    .contacts {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .icons {
+        width: 50%;
+        margin-top: 0;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 0 11%;
+
+        div {
+          display: flex;
+          justify-content: space-between;
+          &:first-child {
+            justify-content: end;
+            gap: 10px;
+
+            a {
+              width: 42px;
+              height: 42px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              border: 1px solid rgba(255, 255, 255, 0.28);
+              background: rgba(255, 255, 255, 0.04);
+              transition: all 0.25s ease;
+
+              i {
+                font-size: 1.1rem;
+              }
+
+              &:hover {
+                color: $secondary-color;
+                border-color: $secondary-color;
+                background: rgba(246, 104, 41, 0.12);
+                transform: translateY(-1px);
+              }
+            }
+          }
+
+          &:not(:first-child) {
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            min-width: 0;
+
+            span:first-child {
+              width: 34px;
+              display: inline-flex;
+              justify-content: center;
+              flex: 0 0 34px;
+            }
+
+            span:last-child {
+              min-width: 0;
+              overflow-wrap: anywhere;
+              word-break: break-word;
+            }
+          }
+        }
+      }
+      .btn {
+        border-radius: 5px;
+        background-color: #b6c71a;
+        cursor: pointer;
+        float: right;
+        margin-top: 20px;
+        padding: 0.5rem 2rem;
+        justify-content: center;
+      }
+    }
+    .modal {
+      visibility: hidden;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.65);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #2b313d;
+      margin: 25% auto;
+      padding: 24px 20px 18px;
+      border: 2px solid $secondary-color;
+      color: $white;
+      position: relative;
+      text-align: center;
+      border-radius: 10px;
+      width: 360px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+      .modal_img {
+        width: 30%;
+        margin: 28px auto 18px;
+      }
+
+      p {
+        font-size: 24px;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .close {
+      font-size: 26px;
+      font-weight: 700;
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      color: $white;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      line-height: 28px;
+      text-align: center;
+      padding: 0;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: $secondary-color;
+      background: rgba(246, 104, 41, 0.12);
+      border-color: $secondary-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  form {
+    width: 50%;
+
+    label {
+      display: block;
+      padding: 10px 0;
+      &.error {
+        padding: 0;
+      }
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: 10px 5px;
+      background: white no-repeat;
+      background-image:
+        linear-gradient(to bottom, $secondary-color, $secondary-color),
+        linear-gradient(to bottom, silver, silver);
+      background-size:
+        0 2px,
+        100% 1px;
+      background-position:
+        50% 100%,
+        50% 100%;
+      transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+      border-radius: 5px;
+
+      &.error {
+        border: 2px solid rgb(201, 60, 60);
+      }
+    }
+    input:focus,
+    textarea:focus {
+      background-size:
+        100% 2px,
+        100% 1px;
+      outline: none;
+    }
+  }
+
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  .green {
+    color: #b6c71a;
+  }
+  .error {
+    color: red;
+    display: block;
+  }
+}
+
+// Desktop "single screen" layout for About (only when there is enough viewport space)
+@media (min-width: 1100px) and (min-height: 820px) {
+  main#about {
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .container {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      margin-top: 4.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h1.lg-heading {
+      font-size: clamp(3rem, 4.2vw, 5rem);
+      margin-bottom: 0.35rem;
+    }
+
+    h2.sm-heading {
+      margin-bottom: 1rem;
+    }
+
+    .grid-container {
+      padding: 18px 10px;
+      gap: 18px;
+      flex: 0 0 auto;
+
+      .portrait,
+      .portrait .img {
+        width: 240px;
+        height: 240px;
+      }
+    }
+
+    .skills {
+      flex: 1;
+      min-height: 0;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: 18px;
+      row-gap: 12px;
+      padding: 12px 10px 10px;
+      margin-top: 10px;
+      margin-bottom: 0;
+      overflow: hidden;
+
+      .skills-block {
+        gap: 10px;
+        overflow: hidden;
+      }
+
+      .skills-header {
+        .big-tick-box {
+          height: 34px;
+          width: 34px;
+          top: 4px;
+          flex: 0 0 34px;
+
+          .fa {
+            font-size: 2.4rem;
+            top: -10px;
+            left: 2px;
+          }
+        }
+
+        h3 {
+          font-size: 0.95rem;
+          line-height: 1.25;
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+}
