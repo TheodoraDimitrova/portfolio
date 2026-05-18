@@ -9,6 +9,11 @@ const submitContactForm = (fields: Record<string, string>) =>
     body: new URLSearchParams({ 'form-name': FORM_NAME, ...fields }).toString(),
   })
 
+/** Netlify Forms success is usually 200 + empty body; SPA fallback is index.html with #root */
+const isSpaIndexHtml = (body: string) =>
+  body.includes('id="root"') &&
+  (body.includes('/assets/index-') || body.includes('/src/main.tsx'))
+
 export const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -42,25 +47,30 @@ export const ContactForm = () => {
       })
 
       const body = await res.text()
-      const looksLikeSpaFallback = body.trimStart().startsWith('<!')
 
-      if (!res.ok || looksLikeSpaFallback) {
-        if (import.meta.env.DEV || looksLikeSpaFallback) {
-          throw new Error('DEV')
-        }
-        throw new Error('Request failed')
+      if (res.ok && !isSpaIndexHtml(body)) {
+        form.reset()
+        setModalOpen(true)
+        return
       }
 
-      form.reset()
-      setModalOpen(true)
-    } catch (err) {
-      if (err instanceof Error && err.message === 'DEV') {
+      if (import.meta.env.DEV) {
         setError(
           'The form works on your live Netlify site. For local testing, run `npx netlify-cli dev` instead of `npm run dev`.',
         )
-      } else {
-        setError('Something went wrong sending your message. Please try again.')
+        return
       }
+
+      if (isSpaIndexHtml(body)) {
+        setError(
+          'The form could not be processed. In Netlify, open Site → Forms and confirm the "contact" form appears after deploy.',
+        )
+        return
+      }
+
+      setError('Something went wrong sending your message. Please try again.')
+    } catch {
+      setError('Something went wrong sending your message. Please try again.')
     } finally {
       setSubmitting(false)
     }
