@@ -1,4 +1,5 @@
 import { type SubmitEvent, useState } from 'react'
+import { trackEvent } from '../utils/analytics'
 
 const WEB3FORMS_URL = 'https://api.web3forms.com/submit'
 
@@ -55,6 +56,7 @@ export const ContactForm = () => {
 
       form.reset()
       setModalOpen(true)
+      trackEvent('contact_form_submit')
     } catch {
       setError('Something went wrong sending your message. Please try again.')
     } finally {
