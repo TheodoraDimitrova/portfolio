@@ -1,18 +1,6 @@
 import { type SubmitEvent, useState } from 'react'
 
-const FORM_NAME = 'contact'
-
-const submitContactForm = (fields: Record<string, string>) =>
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ 'form-name': FORM_NAME, ...fields }).toString(),
-  })
-
-/** Netlify Forms success is usually 200 + empty body; SPA fallback is index.html with #root */
-const isSpaIndexHtml = (body: string) =>
-  body.includes('id="root"') &&
-  (body.includes('/assets/index-') || body.includes('/src/main.tsx'))
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit'
 
 export const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -22,6 +10,12 @@ export const ContactForm = () => {
   const onSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+    if (!accessKey) {
+      setError('Contact form is not configured yet.')
+      return
+    }
 
     const form = e.currentTarget
     const data = new FormData(form)
@@ -38,37 +32,29 @@ export const ContactForm = () => {
 
     setSubmitting(true)
     try {
-      const res = await submitContactForm({
-        name,
-        email,
-        company,
-        message,
-        'bot-field': String(data.get('bot-field') ?? ''),
+      const res = await fetch(WEB3FORMS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: 'Portfolio contact form',
+          from_name: name,
+          email,
+          message: `Company: ${company}${message ? `\n\n${message}` : ''}`,
+        }),
       })
 
-      const body = await res.text()
+      const result = (await res.json()) as { success?: boolean; message?: string }
 
-      if (res.ok && !isSpaIndexHtml(body)) {
-        form.reset()
-        setModalOpen(true)
-        return
+      if (!res.ok || !result.success) {
+        throw new Error(result.message ?? 'Request failed')
       }
 
-      if (import.meta.env.DEV) {
-        setError(
-          'The form works on your live Netlify site. For local testing, run `npx netlify-cli dev` instead of `npm run dev`.',
-        )
-        return
-      }
-
-      if (isSpaIndexHtml(body)) {
-        setError(
-          'The form could not be processed. In Netlify, open Site → Forms and confirm the "contact" form appears after deploy.',
-        )
-        return
-      }
-
-      setError('Something went wrong sending your message. Please try again.')
+      form.reset()
+      setModalOpen(true)
     } catch {
       setError('Something went wrong sending your message. Please try again.')
     } finally {
@@ -78,23 +64,7 @@ export const ContactForm = () => {
 
   return (
     <>
-      <form
-        className="contact-form"
-        id="contactForm"
-        name={FORM_NAME}
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={onSubmit}
-      >
-        <input type="hidden" name="form-name" value={FORM_NAME} />
-
-        <p className="contact-form__honeypot" aria-hidden="true">
-          <label>
-            Do not fill this in
-            <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
-          </label>
-        </p>
-
+      <form className="contact-form" id="contactForm" onSubmit={onSubmit}>
         <div className="contact-form__field">
           <input
             type="text"
