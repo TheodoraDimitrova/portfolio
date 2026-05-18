@@ -1,0 +1,134 @@
+@use "config" as *;
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+}
+
+.site-nav {
+  max-width: $container;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(12, 14, 20, 0.72);
+  border: 1px solid $border;
+  backdrop-filter: blur(16px);
+}
+
+.site-logo {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: $text;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    display: block;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: $text-muted;
+    @include ease-out;
+
+    &:hover,
+    &.is-active {
+      color: $text;
+      background: $accent-soft;
+    }
+
+    &.is-active {
+      color: $accent;
+    }
+  }
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.35rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: $text;
+    border-radius: 2px;
+    @include ease-out;
+  }
+
+  &.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  &.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@include media-md {
+  .nav-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: calc($header-h + 0.75rem);
+    left: 0.75rem;
+    right: 0.75rem;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    border-radius: $radius;
+    background: $primary-elevated;
+    border: 1px solid $border;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+    z-index: 110;
+    max-height: calc(100svh - $header-h - 1.5rem);
+    overflow-y: auto;
+
+    &.is-open {
+      display: flex;
+    }
+
+    li {
+      width: 100%;
+    }
+
+    a {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 1rem;
+    }
+  }
+}

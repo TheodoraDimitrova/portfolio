@@ -1,56 +1,39 @@
-$primery-color: #353b49;
-$secondary-color: #f66829;
-$text-success:#4ae029;
-$white: #fff;
-$home-image: url("/images/home.jpg");
+$primary: #0c0e14;
+$primary-elevated: #141824;
+$surface: #1a1f2e;
+$accent: #f66829;
+$accent-soft: rgba(246, 104, 41, 0.15);
+$text: #f4f6fb;
+$text-muted: #9aa3b5;
+$text-subtle: #94a3b8;
+$border: rgba(255, 255, 255, 0.08);
 $profile-image: url("/images/profile_pic.jpg");
-$show-home-image: true;
-$background-opacity: 0.5;
+$home-image: url("/images/home.jpg");
+
+$font-sans: "DM Sans", system-ui, sans-serif;
+$font-display: "Instrument Serif", Georgia, serif;
+
+$container: min(1120px, calc(100% - 2.5rem));
+$header-h: 4.5rem;
+$scroll-offset: calc(#{$header-h} + 0.75rem);
+$radius: 16px;
+$radius-lg: 24px;
 
 @mixin ease-out {
-  transition: all 0.5s ease-out;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@mixin background {
-  @if $show-home-image {
-    &#bg-img {
-      background: $home-image;
-      background-attachment: fixed;
-      background-size: cover;
-      &:after{
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          background: rgba($color: #000000, $alpha: $background-opacity);
-         
-      }
-    }
-  }
-}
-@mixin  mediaSm {
-   
+
+// Phone
+@mixin media-sm {
   @media screen and (max-width: 500px) {
     @content;
   }
 }
-@mixin  mediaMd {
-   
+
+// Tablet and below (standard tablet breakpoint)
+@mixin media-md {
   @media screen and (max-width: 768px) {
     @content;
   }
 }
-@mixin  mediaLg {
-   
-  @media screen and (min-width: 769px) and (max-width: 1170px){
-    @content;
-  }
-}
-@mixin  mediaXl {
-   
-  @media screen and (min-width: 1171px){
-    @content;
-  }
-}
+

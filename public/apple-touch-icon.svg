@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Teodora Dimitrova">
+  <rect width="180" height="180" rx="40" fill="#0c0e14"/>
+  <text
+    x="34"
+    y="118"
+    fill="#f4f6fb"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="78"
+    font-weight="400"
+    letter-spacing="-2"
+  >TD</text>
+  <circle cx="142" cy="108" r="12" fill="#f66829"/>
+</svg>
