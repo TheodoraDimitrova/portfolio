@@ -15,16 +15,24 @@ export const initAnalytics = () => {
     window.dataLayer?.push(args)
   }
 
+  window.gtag('js', new Date())
+
   const script = document.createElement('script')
   script.async = true
   script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
-  document.head.appendChild(script)
 
-  window.gtag('js', new Date())
-  window.gtag('config', measurementId, {
-    anonymize_ip: true,
-    send_page_view: true,
-  })
+  script.onload = () => {
+    window.gtag?.('config', measurementId, {
+      anonymize_ip: true,
+      send_page_view: true,
+    })
+  }
+
+  script.onerror = () => {
+    console.warn('Google Analytics script blocked or failed to load.')
+  }
+
+  document.head.appendChild(script)
 }
 
 export const trackEvent = (
