@@ -1,5 +1,7 @@
 {
   "liveServer.settings.port": 5501,
   "typescript.tsconfig": "tsconfig.app.json",
-  "sass.loadPaths": ["src/styles"]
+  "sass.loadPaths": ["src/styles"],
+  "scss.lint.unknownAtRules": "ignore",
+  "css.lint.unknownAtRules": "ignore"
 }

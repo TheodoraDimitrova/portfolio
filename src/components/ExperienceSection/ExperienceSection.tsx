@@ -1,6 +1,6 @@
-import { experiences } from "../../data/experience";
-import { Reveal } from "../motion/Reveal";
-import { RevealSection } from "../motion/RevealSection";
+import { experiences } from "@/data/experience";
+import { Reveal } from "@/components/motion/Reveal";
+import { RevealSection } from "@/components/motion/RevealSection";
 import styles from "./ExperienceSection.module.scss";
 
 export const ExperienceSection = () => {

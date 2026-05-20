@@ -1,4 +1,4 @@
-import { navSections } from "../data/site";
+import { navSections } from "@/data/site";
 
 const getScrollOffset = (): number => {
   const header = document.querySelector<HTMLElement>(".site-header");

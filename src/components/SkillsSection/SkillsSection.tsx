@@ -1,5 +1,5 @@
-import { skillGroups } from "../../data/skills";
-import { Reveal } from "../motion/Reveal";
+import { skillGroups } from "@/data/skills";
+import { Reveal } from "@/components/motion/Reveal";
 import styles from "./SkillsSection.module.scss";
 
 export const SkillsSection = () => {

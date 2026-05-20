@@ -1,7 +1,7 @@
-import { contactInfo } from "../../data/site";
-import { ContactForm } from "../ContactForm/ContactForm";
-import { Reveal } from "../motion/Reveal";
-import { RevealSection } from "../motion/RevealSection";
+import { contactInfo } from "@/data/site";
+import { ContactForm } from "@/components/ContactForm/ContactForm";
+import { Reveal } from "@/components/motion/Reveal";
+import { RevealSection } from "@/components/motion/RevealSection";
 import styles from "./ContactSection.module.scss";
 
 export const ContactSection = () => {

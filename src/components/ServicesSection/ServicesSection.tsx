@@ -1,6 +1,6 @@
-import { SERVICES } from "../../data/services";
-import { Reveal } from "../motion/Reveal";
-import { RevealSection } from "../motion/RevealSection";
+import { SERVICES } from "@/data/services";
+import { Reveal } from "@/components/motion/Reveal";
+import { RevealSection } from "@/components/motion/RevealSection";
 import styles from "./ServicesSection.module.scss";
 
 export const ServicesSection = () => {

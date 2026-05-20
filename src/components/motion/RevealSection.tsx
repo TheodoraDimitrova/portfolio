@@ -5,7 +5,7 @@ import {
   revealVisible,
   sectionRevealTransition,
   sectionRevealViewport,
-} from "../../utils/motion";
+} from "@/utils/motion";
 
 type RevealSectionProps = {
   children: ReactNode;

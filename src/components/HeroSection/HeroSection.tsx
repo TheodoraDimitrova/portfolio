@@ -3,9 +3,9 @@ import {
   revealHidden,
   revealTransition,
   revealVisible,
-} from "../../utils/motion";
-import { scrollToSection } from "../../utils/scrollToSection";
-import { HeroTechStack } from "../HeroTechStack/HeroTechStack";
+} from "@/utils/motion";
+import { scrollToSection } from "@/utils/scrollToSection";
+import { HeroTechStack } from "@/components/HeroTechStack/HeroTechStack";
 import styles from "./HeroSection.module.scss";
 
 export const HeroSection = () => {

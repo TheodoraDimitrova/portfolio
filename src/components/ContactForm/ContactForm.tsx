@@ -1,5 +1,5 @@
 import { type SubmitEvent, useState } from "react";
-import { trackEvent } from "../../utils/analytics";
+import { trackEvent } from "@/utils/analytics";
 import styles from "./ContactForm.module.scss";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";

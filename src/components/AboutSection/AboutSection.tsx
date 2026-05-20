@@ -1,7 +1,7 @@
-import { aboutInfo } from "../../data/site";
-import { Reveal } from "../motion/Reveal";
-import { RevealSection } from "../motion/RevealSection";
-import { SkillsSection } from "../SkillsSection/SkillsSection";
+import { aboutInfo } from "@/data/site";
+import { Reveal } from "@/components/motion/Reveal";
+import { RevealSection } from "@/components/motion/RevealSection";
+import { SkillsSection } from "@/components/SkillsSection/SkillsSection";
 import styles from "./AboutSection.module.scss";
 
 export const AboutSection = () => {

@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { techStack } from "../../data/techStack";
+import { techStack } from "@/data/techStack";
 import styles from "./HeroTechStack.module.scss";
 
 export const HeroTechStack = () => {

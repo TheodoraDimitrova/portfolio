@@ -1,6 +1,6 @@
-import { projects } from "../../data/projects";
-import { Reveal } from "../motion/Reveal";
-import { RevealSection } from "../motion/RevealSection";
+import { projects } from "@/data/projects";
+import { Reveal } from "@/components/motion/Reveal";
+import { RevealSection } from "@/components/motion/RevealSection";
 import styles from "./WorkSection.module.scss";
 
 export const WorkSection = () => {

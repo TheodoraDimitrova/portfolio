@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { navSections } from "../../data/site";
-import { getActiveSectionId } from "../../utils/getActiveSectionId";
+import { navSections } from "@/data/site";
+import { getActiveSectionId } from "@/utils/getActiveSectionId";
 import {
   scrollToSection,
   scrollToSectionFromHash,
-} from "../../utils/scrollToSection";
+} from "@/utils/scrollToSection";
 import styles from "./Navbar.module.scss";
 
 export const Navbar = () => {
