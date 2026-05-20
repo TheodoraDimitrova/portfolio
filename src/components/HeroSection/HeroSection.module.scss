@@ -1,0 +1,121 @@
+@use "../../styles/config" as *;
+
+.sectionHero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: $header-h + 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $home-image center / cover no-repeat;
+    opacity: 0.55;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba($primary, 0.35) 0%,
+      rgba($primary, 0.5) 45%,
+      rgba($primary, 0.65) 100%
+    );
+  }
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heroName {
+  font-family: $font-display;
+  font-size: clamp(2.25rem, 11vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+  color: $text;
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.heroNameGradient {
+  background: linear-gradient(to right, #fb923c, #ef4444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroTitle {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+  font-size: clamp(0.95rem, 3.5vw, 1.25rem);
+  font-weight: 500;
+  color: $text-muted;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+  padding-inline: 0.25rem;
+}
+
+.heroCta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+@include media-md {
+  .sectionHero {
+    min-height: 100svh;
+    padding-top: calc($header-h + 1.5rem);
+    padding-bottom: 2rem;
+  }
+
+  .heroName {
+    font-size: clamp(2rem, 12vw, 3.25rem);
+  }
+
+  .heroTitle {
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  .heroCta {
+    width: 100%;
+    max-width: 20rem;
+    flex-direction: column;
+
+    :global(.btn) {
+      width: 100%;
+    }
+  }
+}
+
+@include media-sm {
+  .heroName {
+    font-size: clamp(1.85rem, 11vw, 2.75rem);
+  }
+}

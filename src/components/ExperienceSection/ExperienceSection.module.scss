@@ -1,0 +1,220 @@
+@use "../../styles/config" as *;
+
+.sectionExperience {
+  padding-bottom: 3rem;
+  background: linear-gradient(180deg, rgba(20, 24, 36, 0.4), transparent);
+}
+
+.timeline {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 0 0.5rem;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(246, 104, 41, 0.35) 8%,
+    rgba(246, 104, 41, 0.55) 50%,
+    rgba(246, 104, 41, 0.35) 92%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.timelineList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.5rem minmax(0, 1fr);
+  gap: 0 1.75rem;
+  align-items: start;
+  margin-bottom: 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timelineMarker {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: 14px;
+  height: 14px;
+  margin-top: 1.35rem;
+  border-radius: 50%;
+  background: $accent;
+  box-shadow:
+    0 0 0 4px $accent-soft,
+    0 0 16px rgba(246, 104, 41, 0.45);
+  z-index: 1;
+}
+
+.timelineCard {
+  grid-row: 1;
+  padding: 1.35rem 1.5rem;
+  border-radius: $radius;
+  background: $surface;
+  border: 1px solid $border;
+  @include ease-out;
+
+  &:hover {
+    border-color: rgba(246, 104, 41, 0.35);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.timelineItemLeft {
+  .timelineCard {
+    grid-column: 1;
+    text-align: right;
+  }
+
+  .highlights li {
+    padding-right: 1rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: $accent;
+    }
+  }
+}
+
+.timelineItemRight {
+  .timelineCard {
+    grid-column: 3;
+    text-align: left;
+  }
+
+  .highlights li {
+    padding-left: 1rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: $accent;
+    }
+  }
+}
+
+.timelinePeriod {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: $accent;
+  background: $accent-soft;
+  border: 1px solid rgba(246, 104, 41, 0.25);
+}
+
+.timelineRole {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+}
+
+.timelineCompany {
+  color: $text-muted;
+  font-weight: 500;
+}
+
+.timelineLocation {
+  margin-bottom: 0.85rem;
+  font-size: 0.85rem;
+  color: $text-muted;
+}
+
+.highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  li {
+    position: relative;
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.55;
+  }
+}
+
+@include media-md {
+  .sectionExperience {
+    padding-bottom: 2rem;
+  }
+
+  .timelineLine {
+    left: 1.15rem;
+    transform: none;
+  }
+
+  .timelineItem {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .timelineMarker {
+    grid-column: 1;
+    margin-top: 1.15rem;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timelineItemLeft,
+  .timelineItemRight {
+    .timelineCard {
+      grid-column: 2;
+      text-align: left;
+    }
+  }
+
+  .timelineItemLeft .highlights li {
+    padding-right: 0;
+    padding-left: 1rem;
+
+    &::before {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  .timelineCard {
+    padding: 1.15rem;
+  }
+
+  .timelineRole {
+    font-size: 0.98rem;
+  }
+}

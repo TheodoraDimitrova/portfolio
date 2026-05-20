@@ -1,0 +1,117 @@
+@use "../../styles/config" as *;
+
+.skillsBento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  > div {
+    display: flex;
+    min-height: 100%;
+  }
+}
+
+.skillCard {
+  flex: 1;
+  width: 100%;
+  padding: 2rem 1.875rem;
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  @include ease-out;
+
+  &:hover {
+    border-color: rgba(246, 104, 41, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.skillCardTitle {
+  margin: 0 0 1.75rem;
+  padding-bottom: 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $accent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.skillCardList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.skillCardItem {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.skillCardHeading {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: $text;
+}
+
+.skillCardDesc {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: $text-subtle;
+}
+
+@include media-md {
+  .skillsBento {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skillCard {
+    padding: 1.5rem 1.35rem;
+  }
+
+  .skillCardTitle {
+    margin-bottom: 1.35rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .skillCardItem {
+    padding: 1rem 0;
+  }
+
+  .skillCardHeading {
+    font-size: 0.95rem;
+    text-wrap: pretty;
+  }
+
+  .skillCardDesc {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+}
+
+@include media-sm {
+  .skillCard {
+    padding: 1.25rem 1.1rem;
+  }
+}

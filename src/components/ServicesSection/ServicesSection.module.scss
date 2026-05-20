@@ -1,0 +1,128 @@
+@use "../../styles/config" as *;
+
+.sectionServices {
+  background: $primary-elevated;
+}
+
+.servicesHeader {
+  text-align: center;
+  max-width: 40rem;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(2rem, 4vw, 3rem);
+
+  > div {
+    display: flex;
+    min-height: 100%;
+  }
+}
+
+.serviceCard {
+  flex: 1;
+  padding: 0.25rem 0.5rem 1.5rem;
+  background: transparent;
+  border: none;
+  @include ease-out;
+}
+
+.serviceCardIconWrap {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1.75rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 50%;
+    width: 3.25rem;
+    height: 3.25rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(246, 104, 41, 0.45) 0%,
+      rgba(246, 104, 41, 0.08) 45%,
+      transparent 70%
+    );
+    filter: blur(10px);
+    opacity: 0.55;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+}
+
+.serviceCardIcon {
+  position: relative;
+  z-index: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: rgba(244, 246, 251, 0.92);
+  stroke: currentColor;
+  filter: drop-shadow(0 0 12px rgba(246, 104, 41, 0.25));
+  transition:
+    color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.serviceCard:hover .serviceCardIconWrap::before {
+  opacity: 0.9;
+}
+
+.serviceCard:hover .serviceCardIcon {
+  color: $accent;
+  filter: drop-shadow(0 0 16px rgba(246, 104, 41, 0.45));
+}
+
+.serviceCardTitle {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: $text;
+  transition: color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.serviceCard:hover .serviceCardTitle {
+  color: rgba(244, 246, 251, 1);
+}
+
+.serviceCardDesc {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: $text-subtle;
+}
+
+@include media-md {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .serviceCard {
+    padding-inline: 0;
+  }
+
+  .serviceCardIconWrap {
+    margin-bottom: 1.35rem;
+  }
+
+  .serviceCardTitle {
+    font-size: 1rem;
+    text-wrap: pretty;
+  }
+
+  .serviceCardDesc {
+    text-wrap: pretty;
+  }
+}

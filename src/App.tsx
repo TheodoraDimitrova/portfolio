@@ -1,11 +1,11 @@
-import { ShowcasePage } from './pages/ShowcasePage'
-import { Navbar } from './components/Navbar'
+import { HomePage } from "./pages/HomePage";
+import { Navbar } from "./components/Navbar/Navbar";
 
 const App = () => (
   <>
     <Navbar />
-    <ShowcasePage />
+    <HomePage />
   </>
-)
+);
 
-export default App
+export default App;

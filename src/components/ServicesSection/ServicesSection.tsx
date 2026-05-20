@@ -1,12 +1,16 @@
-import { SERVICES } from "../constants/services";
-import { Reveal } from "./Reveal";
-import { RevealSection } from "./RevealSection";
+import { SERVICES } from "../../data/services";
+import { Reveal } from "../motion/Reveal";
+import { RevealSection } from "../motion/RevealSection";
+import styles from "./ServicesSection.module.scss";
 
 export const ServicesSection = () => {
   return (
-    <RevealSection id="services" className="section section-services">
+    <RevealSection
+      id="services"
+      className={`section ${styles.sectionServices}`}
+    >
       <div className="container">
-        <header className="section-header services-header">
+        <header className={`section-header ${styles.servicesHeader}`}>
           <p className="eyebrow">Services</p>
           <h2>
             How I Help Businesses
@@ -19,17 +23,20 @@ export const ServicesSection = () => {
           </p>
         </header>
 
-        <div className="services-grid">
+        <div className={styles.servicesGrid}>
           {SERVICES.map((service, index) => {
             const Icon = service.icon;
             return (
               <Reveal key={service.title} delay={index * 0.15}>
-                <article className="service-card">
-                  <div className="service-card__icon-wrap" aria-hidden>
-                    <Icon className="service-card__icon" strokeWidth={1} />
+                <article className={styles.serviceCard}>
+                  <div className={styles.serviceCardIconWrap} aria-hidden>
+                    <Icon
+                      className={styles.serviceCardIcon}
+                      strokeWidth={1}
+                    />
                   </div>
-                  <h3 className="service-card__title">{service.title}</h3>
-                  <p className="service-card__desc">{service.description}</p>
+                  <h3 className={styles.serviceCardTitle}>{service.title}</h3>
+                  <p className={styles.serviceCardDesc}>{service.description}</p>
                 </article>
               </Reveal>
             );

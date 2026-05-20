@@ -1,11 +1,12 @@
-import { footerSocialLinks } from '../data/site'
+import { footerSocialLinks } from "../../data/site";
+import styles from "./Footer.module.scss";
 
 export const Footer = () => {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="site-footer">
-      <div className="footer-social">
+    <footer className={styles.siteFooter}>
+      <div className={styles.footerSocial}>
         {footerSocialLinks.map((link) => (
           <a
             key={link.href}
@@ -20,5 +21,5 @@ export const Footer = () => {
       </div>
       <p>© {year} Teodora Dimitrova. All rights reserved.</p>
     </footer>
-  )
+  );
 };

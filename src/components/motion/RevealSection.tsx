@@ -1,18 +1,18 @@
-import { motion, useReducedMotion } from 'framer-motion'
-import type { ReactNode } from 'react'
+import { motion, useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
 import {
   revealHidden,
   revealVisible,
   sectionRevealTransition,
   sectionRevealViewport,
-} from '../utils/motion'
+} from "../../utils/motion";
 
 type RevealSectionProps = {
-  children: ReactNode
-  id?: string
-  className?: string
-  delay?: number
-}
+  children: ReactNode;
+  id?: string;
+  className?: string;
+  delay?: number;
+};
 
 export const RevealSection = ({
   children,
@@ -20,7 +20,7 @@ export const RevealSection = ({
   className,
   delay = 0,
 }: RevealSectionProps) => {
-  const reduceMotion = useReducedMotion()
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.section
@@ -33,5 +33,5 @@ export const RevealSection = ({
     >
       {children}
     </motion.section>
-  )
-}
+  );
+};

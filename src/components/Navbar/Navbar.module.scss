@@ -1,6 +1,6 @@
-@use "config" as *;
+@use "../../styles/config" as *;
 
-.site-header {
+.siteHeader {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   padding: 0.75rem 1.25rem;
 }
 
-.site-nav {
+.siteNav {
   max-width: $container;
   margin: 0 auto;
   display: flex;
@@ -23,7 +23,7 @@
   backdrop-filter: blur(16px);
 }
 
-.site-logo {
+.siteLogo {
   font-family: $font-display;
   font-size: 1.5rem;
   font-weight: 400;
@@ -35,7 +35,7 @@
   }
 }
 
-.nav-links {
+.navLinks {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -51,19 +51,19 @@
     color: $text-muted;
     @include ease-out;
 
-    &:hover,
-    &.is-active {
+    &:hover {
       color: $text;
       background: $accent-soft;
-    }
-
-    &.is-active {
-      color: $accent;
     }
   }
 }
 
-.nav-toggle {
+.linkActive {
+  color: $accent !important;
+  background: $accent-soft !important;
+}
+
+.navToggle {
   display: none;
   flex-direction: column;
   gap: 5px;
@@ -80,27 +80,42 @@
     border-radius: 2px;
     @include ease-out;
   }
+}
 
-  &.is-open span:nth-child(1) {
+.navToggleOpen {
+  span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
 
-  &.is-open span:nth-child(2) {
+  span:nth-child(2) {
     opacity: 0;
   }
 
-  &.is-open span:nth-child(3) {
+  span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
 }
 
 @include media-md {
-  .nav-toggle {
+  .siteHeader {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .siteNav {
+    padding: 0.5rem 0.85rem;
+    border-radius: $radius;
+  }
+
+  .siteLogo {
+    font-size: 1.25rem;
+  }
+
+  .navToggle {
     display: flex;
     margin-left: auto;
   }
 
-  .nav-links {
+  .navLinks {
     display: none;
     position: fixed;
     top: calc($header-h + 0.75rem);
@@ -117,10 +132,6 @@
     max-height: calc(100svh - $header-h - 1.5rem);
     overflow-y: auto;
 
-    &.is-open {
-      display: flex;
-    }
-
     li {
       width: 100%;
     }
@@ -130,5 +141,9 @@
       text-align: center;
       padding: 0.75rem 1rem;
     }
+  }
+
+  .navLinksOpen {
+    display: flex;
   }
 }

@@ -7,6 +7,11 @@ export default defineConfig(({ mode }) => {
   const gaId = env.VITE_GA_MEASUREMENT_ID
 
   return {
+    css: {
+      modules: {
+        localsConvention: "camelCase",
+      },
+    },
     plugins: [
       react(),
       {

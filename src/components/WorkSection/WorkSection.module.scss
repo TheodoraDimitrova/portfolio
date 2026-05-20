@@ -1,0 +1,146 @@
+@use "../../styles/config" as *;
+
+.sectionWork {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  > div {
+    display: flex;
+    min-height: 100%;
+  }
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $surface;
+  border: 1px solid $border;
+  @include ease-out;
+
+  &:hover {
+    border-color: rgba(246, 104, 41, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.productMedia {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  padding: 0.75rem 0.75rem 0;
+  background: $primary-elevated;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    @include ease-out;
+  }
+}
+
+.productCard:hover .productMedia img {
+  transform: scale(1.03);
+}
+
+.productBody {
+  padding: 1.35rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+}
+
+.productCardTitle {
+  margin: 0 0 0.65rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: $text;
+}
+
+.productCardDesc {
+  margin: 0 0 1rem;
+  color: $text-muted;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.productTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.15rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: $accent;
+  background: $accent-soft;
+  border: 1px solid rgba(246, 104, 41, 0.25);
+}
+
+.productActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.workMore {
+  margin-top: 2.5rem;
+  text-align: center;
+
+  a {
+    color: $text-muted;
+    font-weight: 600;
+    @include ease-out;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+@include media-md {
+  .sectionWork {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include media-sm {
+  .productBody {
+    padding: 1.15rem;
+  }
+
+  .productActions {
+    flex-direction: column;
+
+    :global(.btn) {
+      width: 100%;
+    }
+  }
+}
