@@ -32,7 +32,7 @@ export const ShowcasePage = () => {
             </h1>
             <HeroTechStack />
             <p className="hero-title">
-              Front-End Developer | Specializing in product-driven web
+              Front-End Engineer | Specializing in product-driven web
               applications
             </p>
             <div className="hero-cta">
